@@ -59,7 +59,7 @@ When fetch the car
 Return parked car
 
 [X] Case3  
-Given a parking lot with two parked cars, a standard parking boy, and two parking tickets
+Given a parking lot with two parked cars, a standard parking boy, and two parking tickets  
 When fetch the car (2x)     
 Return right car for each ticket
 
@@ -69,15 +69,27 @@ When fetch the car
 Return  error message "Unrecognized parking ticket."
 
 [X] Case5  
-Given a parking lot, a standard parking boy, and used parking ticket
+Given a parking lot, a standard parking boy, and used parking ticket  
 When fetch the car    
 Return error message "Unrecognized parking ticket."
 
-[] Case6  
+[X] Case6  
 Given a parking lot without any position, a standard parking boy, and a car  
 When park the car    
 Return error message "No available position."
 
+# Story 4
+[] Case1  
+Given a standard parking boy that manages two parking lots, two not full parking lots, and a car  
+When park the car      
+Return car parked in first parking lot
 
+[] Case2  
+Given a standard parking boy that manages two parking lots, first lot is full second with position, and a car  
+When park the car      
+Return car parked in second parking lot
 
-
+[] Case3  
+Given a standard parking boy that manages two parking lots, both parking lots with parked car, and two parking ticket
+When fetch the car (2x)      
+Return right car for each ticket

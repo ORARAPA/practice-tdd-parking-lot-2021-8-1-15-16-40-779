@@ -1,7 +1,14 @@
 package com.parkinglot;
 
+import java.util.List;
+
 public class StandardParkingBoy {
     private ParkingLot parkingLot;
+    private List<ParkingLot> parkingLots;
+
+    public StandardParkingBoy(List<ParkingLot> parkingLot) {
+        this.parkingLots = parkingLot;
+    }
 
     public StandardParkingBoy(ParkingLot parkingLot) {
         this.parkingLot = parkingLot;

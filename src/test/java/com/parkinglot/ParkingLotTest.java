@@ -2,9 +2,14 @@ package com.parkinglot;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotTest {
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Test
     public void should_return_parking_ticket_when_park_given_parking_lot_and_a_car() {
@@ -236,6 +241,27 @@ public class ParkingLotTest {
         //when & then
         Exception exception = assertThrows(NoAvailablePositionException.class,() -> parkingBoy.park(car));
         assertEquals("No available position.",exception.getMessage());
+    }
+
+    @Test
+    public void should_return_car_parked_in_first_parking_lot_when_park_given_a_standard_parking_boy_manage_two_not_full_parking_lots_and_a_car() {
+        //given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(new ParkingLot());
+        parkingLots.add(new ParkingLot());
+        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLots);
+        Car car = new Car();
+
+        //when
+        parkingBoy.park(car);
+
+        //then
+        assertEquals("Car is parked in Parking Lot 1",systemOut());
+
+    }
+
+    private String systemOut() {
+        return outContent.toString();
     }
 
 

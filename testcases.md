@@ -31,7 +31,7 @@ Return nothing
 
 
 # Story 2
-[] Case1  
+[X] Case1  
 Given an unrecognized ticket  
 When fetch the car      
 Return error message "Unrecognized parking ticket."    

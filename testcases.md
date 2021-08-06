@@ -41,8 +41,25 @@ Given a used ticket
 When fetch the car      
 Return error message should be "Unrecognized parking ticket."
 
-[] Case3 
-Given a parking lot without any position, and a car
+[X] Case3 
+Given a parking lot without any position, and a car  
+When park the car        
+Return error message should be "No available position."  
+
+
+# Story 3
+[] Case1  
+Given a parking lot, standard parking boy and a car
 When park the car      
-Return error message should be "No available position."
+Return parking ticket
+
+[] Case2  
+Given a parking lot with a parked car, a standard parking boy, a parking ticket  
+When fetch the car      
+Return parked car
+
+[] Case3  
+Given a parking lot with two parked cars, a standard parking boy, and two parking tickets
+When fetch the car (2x)     
+Return right car for each ticket
 

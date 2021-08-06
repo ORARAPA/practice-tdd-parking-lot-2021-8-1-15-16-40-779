@@ -24,7 +24,7 @@ Given a used parking ticket
 When fetch the car  
 Return nothing
 
-[] Case6  
+[X] Case6  
 Given a full parking lot, a car    
 When park the car  
 Return nothing
@@ -32,11 +32,17 @@ Return nothing
 
 # Story 2
 [] Case1  
-Given a wrong/used parking ticket  
-When fetch the car    
-Return error message "Unrecognized parking ticket."  
+Given an unrecognized ticket  
+When fetch the car      
+Return error message "Unrecognized parking ticket."    
 
 [] Case2  
-Given a car  
-When park the car    
-Return error message should be "No available position."  
+Given a used ticket  
+When fetch the car      
+Return error message should be "Unrecognized parking ticket."
+
+[] Case3 
+Given a parking lot without any position, and a car
+When park the car      
+Return error message should be "No available position.
+

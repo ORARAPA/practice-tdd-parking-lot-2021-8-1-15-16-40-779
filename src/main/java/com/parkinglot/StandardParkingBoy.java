@@ -33,7 +33,11 @@ public class StandardParkingBoy {
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
-        return findParkingLotRelatedTo(parkingTicket).fetch(parkingTicket);
+        ParkingLot foundInParkingLotNo = findParkingLotRelatedTo(parkingTicket);
+        if(foundInParkingLotNo == null){
+            throw new UnrecognizedParkingTicketException();
+        }
+        return foundInParkingLotNo.fetch(parkingTicket);
     }
 
     private ParkingLot findParkingLotRelatedTo(ParkingTicket parkingTicket){

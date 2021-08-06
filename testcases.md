@@ -110,7 +110,7 @@ When park the car
 Return error message "No available position."
 
 # Story 5
-[] Case1  
+[X] Case1  
 Given a smart parking boy, first parking lot has 2 parked cars, second parking lot has 1 parked car, and a car  
 When park the car      
 Return car parked in second parking lot

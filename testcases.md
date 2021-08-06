@@ -53,13 +53,31 @@ Given a parking lot, standard parking boy and a car
 When park the car      
 Return parking ticket
 
-[] Case2  
+[X] Case2  
 Given a parking lot with a parked car, a standard parking boy, a parking ticket  
 When fetch the car      
 Return parked car
 
-[] Case3  
+[X] Case3  
 Given a parking lot with two parked cars, a standard parking boy, and two parking tickets
 When fetch the car (2x)     
 Return right car for each ticket
+
+[] Case4  
+Given a parking lot, a standard parking boy, and wrong ticket
+When fetch the car    
+Return nothing with error message "Unrecognized parking ticket."
+
+[] Case5  
+Given a parking lot, a standard parking boy, and used parking ticket
+When fetch the car    
+Return nothing with error message "Unrecognized parking ticket."
+
+[] Case6  
+Given a parking lot without any position, a standard parking boy, and a car  
+When park the car    
+Return nothing with error message "No available position."
+
+
+
 

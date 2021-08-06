@@ -27,7 +27,15 @@ public class SmartParkingBoy {
                 .get(0);
     }
 
-    public Car fetch(ParkingTicket aliceCarInParkingLot1) {
-        return null;
+    public Car fetch(ParkingTicket parkingTicket) {
+        return findParkingLotRelatedTo(parkingTicket).fetch(parkingTicket);
+    }
+
+    private ParkingLot findParkingLotRelatedTo(ParkingTicket parkingTicket) {
+        return parkingLots
+                .stream()
+                .filter(currParkingLot -> currParkingLot.parkedPosition.containsKey(parkingTicket))
+                .collect(Collectors.toList())
+                .get(0);
     }
 }

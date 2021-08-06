@@ -36,7 +36,7 @@ Given an unrecognized ticket
 When fetch the car      
 Return error message "Unrecognized parking ticket."    
 
-[] Case2  
+[X] Case2  
 Given a used ticket  
 When fetch the car      
 Return error message should be "Unrecognized parking ticket."
@@ -44,5 +44,5 @@ Return error message should be "Unrecognized parking ticket."
 [] Case3 
 Given a parking lot without any position, and a car
 When park the car      
-Return error message should be "No available position.
+Return error message should be "No available position."
 

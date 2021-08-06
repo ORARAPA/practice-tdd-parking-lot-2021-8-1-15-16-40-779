@@ -84,7 +84,7 @@ public class ParkingLotTest {
     @Test
     public void should_return_nothing_when_park_given_a_full_parking_lot_and_a_car() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         Car car = new Car();
         ParkingTicket parkingTicket1 = parkingLot.park(car);
         ParkingTicket parkingTicket2 = parkingLot.park(car);

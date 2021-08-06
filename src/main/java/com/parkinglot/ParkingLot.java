@@ -5,6 +5,13 @@ import java.util.Map;
 
 public class ParkingLot {
     private Map<ParkingTicket,Car> parkedPosition = new HashMap<>();
+    private int capacity;
+
+    public ParkingLot() {
+    }
+
+    public ParkingLot(int capacity) {
+    }
 
     public ParkingTicket park(Car car) {
         ParkingTicket parkingTicket = new ParkingTicket();

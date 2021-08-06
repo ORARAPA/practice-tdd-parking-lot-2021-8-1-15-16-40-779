@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class ParkingLot {
     private Map<ParkingTicket,Car> parkedPosition = new HashMap<>();
-    private int capacity;
+    private int capacity = 10;
 
     public ParkingLot() {
     }
@@ -16,7 +16,7 @@ public class ParkingLot {
 
     public ParkingTicket park(Car car) {
         ParkingTicket parkingTicket = new ParkingTicket();
-        if(parkedPosition.size() > capacity){
+        if(parkedPosition.size() < capacity){
             parkedPosition.put(parkingTicket,car);
             return parkingTicket;
         }

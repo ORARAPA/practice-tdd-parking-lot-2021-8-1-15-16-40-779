@@ -28,14 +28,23 @@ public class SmartParkingBoy {
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
+        ParkingLot foundInParkingLotNo = findParkingLotRelatedTo(parkingTicket);
+        if(foundInParkingLotNo == null){
+            throw new UnrecognizedParkingTicketException();
+        }
         return findParkingLotRelatedTo(parkingTicket).fetch(parkingTicket);
     }
 
     private ParkingLot findParkingLotRelatedTo(ParkingTicket parkingTicket) {
-        return parkingLots
+        List<ParkingLot> currentParkingLot = parkingLots
                 .stream()
                 .filter(currParkingLot -> currParkingLot.parkedPosition.containsKey(parkingTicket))
-                .collect(Collectors.toList())
-                .get(0);
+                .collect(Collectors.toList());
+
+        if(!currentParkingLot.isEmpty()){
+            return this.parkingLot = currentParkingLot.get(0);
+        }
+        return null;
+
     }
 }

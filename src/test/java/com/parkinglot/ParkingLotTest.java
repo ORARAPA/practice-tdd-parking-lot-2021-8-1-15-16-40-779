@@ -153,7 +153,7 @@ public class ParkingLotTest {
     public void should_return_parking_ticket_when_park_given_a_parking_lot_a_standard_parking_boy_and_a_car() {
         //given
         ParkingLot parkingLot = new ParkingLot();
-        StandardParkingBoy parkingBoy = new StandardParkingBoy();
+        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLot);
         Car car = new Car();
 
         //when

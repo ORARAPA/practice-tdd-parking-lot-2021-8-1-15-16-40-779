@@ -26,4 +26,8 @@ public class SmartParkingBoy {
                 .collect(Collectors.toList())
                 .get(0);
     }
+
+    public Car fetch(ParkingTicket aliceCarInParkingLot1) {
+        return null;
+    }
 }

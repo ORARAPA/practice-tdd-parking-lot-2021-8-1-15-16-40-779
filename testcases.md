@@ -115,12 +115,12 @@ Given a smart parking boy, first parking lot has 2 parked cars, second parking l
 When park the car      
 Return car parked in second parking lot
 
-[] Case2  
+[X] Case2  
 Given a smart parking boy with two empty parking lots, and three cars  
 When park the car (3x)     
 Return right parking lot for each car
 
-[] Case3  
+[X] Case3  
 Given a smart parking boy with parked cars in two parking lots, and two parking tickets  
 When fetch the car (2x)      
 Return right car for each ticket

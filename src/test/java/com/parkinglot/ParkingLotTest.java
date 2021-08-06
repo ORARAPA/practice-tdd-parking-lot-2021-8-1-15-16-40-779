@@ -416,5 +416,31 @@ public class ParkingLotTest {
 
     }
 
+    @Test
+    public void should_return_right_car_for_each_ticket_when_fetch_twice_given_a_smart_parking_boy_manage_two_parking_lots_with_parked_cars_and_two_parking_tickets() {
+        //given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        ParkingLot parkingLot1 = new ParkingLot();
+        ParkingLot parkingLot2 = new ParkingLot();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        Car aliceCar = new Car();
+        Car bobCar = new Car();
+        ParkingTicket aliceCarInParkingLot1 = parkingLot1.park(aliceCar);
+        ParkingTicket bobCarInParkingLot2 = parkingLot2.park(bobCar);
+        SmartParkingBoy parkingBoy = new SmartParkingBoy(parkingLots);
+
+        //when
+        Car actualAliceCar = parkingBoy.fetch(aliceCarInParkingLot1);
+        Car actualBobCar = parkingBoy.fetch(bobCarInParkingLot2);
+
+        //then
+        assertEquals(aliceCar,actualAliceCar);
+        assertEquals(bobCar,actualBobCar);
+
+    }
+
+
+
 
 }

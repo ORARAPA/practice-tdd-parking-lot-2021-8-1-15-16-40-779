@@ -66,17 +66,17 @@ Return right car for each ticket
 [] Case4  
 Given a parking lot, a standard parking boy, and wrong ticket
 When fetch the car    
-Return nothing with error message "Unrecognized parking ticket."
+Return  error message "Unrecognized parking ticket."
 
 [] Case5  
 Given a parking lot, a standard parking boy, and used parking ticket
 When fetch the car    
-Return nothing with error message "Unrecognized parking ticket."
+Return error message "Unrecognized parking ticket."
 
 [] Case6  
 Given a parking lot without any position, a standard parking boy, and a car  
 When park the car    
-Return nothing with error message "No available position."
+Return error message "No available position."
 
 
 

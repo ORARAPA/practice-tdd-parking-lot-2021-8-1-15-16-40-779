@@ -90,6 +90,6 @@ When park the car
 Return car parked in second parking lot
 
 [] Case3  
-Given a standard parking boy that manages two parking lots, both parking lots with parked car, and two parking ticket
+Given a standard parking boy that manages two parking lots, both parking lots with parked car, and two parking ticket  
 When fetch the car (2x)      
 Return right car for each ticket

@@ -14,7 +14,7 @@ public class StandardParkingBoy {
     }
     public StandardParkingBoy(List<ParkingLot> parkingLots) {
         this.isParkingBoyManagingMoreThanOneParkingLot = true;
-        this.parkingLot = getAvailableParkingLot(parkingLots);
+        this.parkingLots = parkingLots;
     }
 
     private ParkingLot getAvailableParkingLot(List<ParkingLot> parkingLots){
@@ -29,6 +29,9 @@ public class StandardParkingBoy {
     }
 
     public ParkingTicket park(Car car) {
+        if(isParkingBoyManagingMoreThanOneParkingLot){
+            return getAvailableParkingLot(parkingLots).park(car);
+        }
         return parkingLot.park(car);
     }
 

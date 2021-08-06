@@ -4,16 +4,21 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class StandardParkingBoy {
+    private boolean isParkingBoyManagingMoreThanOneParkingLot;
     private ParkingLot parkingLot;
+    private List<ParkingLot> parkingLots;
 
     public StandardParkingBoy(ParkingLot parkingLot) {
+        this.isParkingBoyManagingMoreThanOneParkingLot = false;
         this.parkingLot = parkingLot;
     }
     public StandardParkingBoy(List<ParkingLot> parkingLots) {
+        this.isParkingBoyManagingMoreThanOneParkingLot = true;
         this.parkingLot = getAvailableParkingLot(parkingLots);
     }
 
     private ParkingLot getAvailableParkingLot(List<ParkingLot> parkingLots){
+        this.parkingLots = parkingLots;
         for(ParkingLot currParkingLot: parkingLots){
             if(!currParkingLot.isParkingLotFull()){
                 System.out.print("Car is parked in Parking Lot " + (parkingLots.indexOf(currParkingLot)+1));
@@ -28,6 +33,17 @@ public class StandardParkingBoy {
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
-        return parkingLot.fetch(parkingTicket);
+        return findParkingLotRelatedTo(parkingTicket).fetch(parkingTicket);
+    }
+
+    private ParkingLot findParkingLotRelatedTo(ParkingTicket parkingTicket){
+        if(isParkingBoyManagingMoreThanOneParkingLot){
+            for(ParkingLot currParkingLot: parkingLots){
+                if(currParkingLot.parkedPosition.containsKey(parkingTicket)){
+                    return currParkingLot;
+                }
+            }
+        }
+        return parkingLot;
     }
 }

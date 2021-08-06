@@ -9,7 +9,12 @@ Given a parking ticket
 When fetch the car  
 Then return the car.
 
-[] Case3  
-Given two parked cars and two parking tickets
+[X] Case3  
+Given two parked cars and two parking tickets  
 When fetch the car  
 Return right car.  
+
+[] Case4  
+Given a wrong ticket  
+When fetch the car  
+Return nothing

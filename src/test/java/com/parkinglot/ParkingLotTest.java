@@ -271,5 +271,25 @@ public class ParkingLotTest {
         return outContent.toString();
     }
 
+    @Test
+    public void should_return_car_parked_in_second_parking_lot_when_park_given_a_standard_parking_boy_manage_first_full_parking_lot_and_second_with_position_available_and_a_car() {
+        //given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        ParkingLot parkingLot1 = new ParkingLot();
+        ParkingLot parkingLot2 = new ParkingLot();
+        parkingLots.add(parkingLot1);
+        Car car = new Car();
+        for (int i = 0; i < 10; i++) {
+            parkingLot1.park(car);
+        }
+        parkingLots.add(parkingLot2);
+        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLots);
 
+        //when
+        parkingBoy.park(car);
+
+        //then
+        assertEquals("Car is parked in Parking Lot 2",systemOut());
+
+    }
 }

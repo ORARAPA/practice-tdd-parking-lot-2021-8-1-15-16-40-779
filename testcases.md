@@ -84,7 +84,7 @@ Given a standard parking boy that manages two parking lots, two not full parking
 When park the car      
 Return car parked in first parking lot
 
-[] Case2  
+[X] Case2  
 Given a standard parking boy that manages two parking lots, first lot is full second with position, and a car  
 When park the car      
 Return car parked in second parking lot

@@ -19,7 +19,12 @@ Given a wrong ticket
 When fetch the car  
 Return nothing
 
-[] Case5  
+[X] Case5  
 Given a used parking ticket  
 When fetch the car  
+Return nothing
+
+[] Case6  
+Given a full parking lot, a car    
+When park the car  
 Return nothing

@@ -102,11 +102,14 @@ public class ParkingLotTest {
         ParkingTicket parkingTicket10 = parkingLot.park(car);
 
         //when
-        ParkingTicket parkingTicket11 = parkingLot.park(car);
+        //ParkingTicket parkingTicket11 = parkingLot.park(car);
 
 
         //then
-        assertNull(parkingTicket11);
+        //assertNull(parkingTicket11);
+
+        Exception exception = assertThrows(NoAvailablePositionException.class,() -> parkingLot.park(car));
+        assertEquals("No available position.",exception.getMessage());
     }
 
     @Test

@@ -30,7 +30,12 @@ public class StandardParkingBoy {
 
     public ParkingTicket park(Car car) {
         if(isParkingBoyManagingMoreThanOneParkingLot){
-            return getAvailableParkingLot(parkingLots).park(car);
+            ParkingLot currentParkingLot = getAvailableParkingLot(parkingLots);
+            if(currentParkingLot != null){
+                return currentParkingLot.park(car);
+            }else {
+                throw new NoAvailablePositionException();
+            }
         }
         return parkingLot.park(car);
     }

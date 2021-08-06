@@ -86,12 +86,23 @@ public class ParkingLotTest {
         //given
         ParkingLot parkingLot = new ParkingLot();
         Car car = new Car();
+        ParkingTicket parkingTicket1 = parkingLot.park(car);
+        ParkingTicket parkingTicket2 = parkingLot.park(car);
+        ParkingTicket parkingTicket3 = parkingLot.park(car);
+        ParkingTicket parkingTicket4 = parkingLot.park(car);
+        ParkingTicket parkingTicket5 = parkingLot.park(car);
+        ParkingTicket parkingTicket6 = parkingLot.park(car);
+        ParkingTicket parkingTicket7 = parkingLot.park(car);
+        ParkingTicket parkingTicket8 = parkingLot.park(car);
+        ParkingTicket parkingTicket9 = parkingLot.park(car);
+        ParkingTicket parkingTicket10 = parkingLot.park(car);
 
         //when
-        ParkingTicket parkingTicket = parkingLot.park(car);
+        ParkingTicket parkingTicket11 = parkingLot.park(car);
+
 
         //then
-        assertNull(parkingTicket);
+        assertNull(parkingTicket11);
     }
 
 }

@@ -14,7 +14,12 @@ Given two parked cars and two parking tickets
 When fetch the car  
 Return right car.  
 
-[] Case4  
+[X] Case4  
 Given a wrong ticket  
+When fetch the car  
+Return nothing
+
+[] Case5  
+Given a used parking ticket  
 When fetch the car  
 Return nothing

@@ -11,12 +11,16 @@ public class ParkingLot {
     }
 
     public ParkingLot(int capacity) {
+        this.capacity = capacity;
     }
 
     public ParkingTicket park(Car car) {
         ParkingTicket parkingTicket = new ParkingTicket();
-        parkedPosition.put(parkingTicket,car);
-        return parkingTicket;
+        if(parkedPosition.size() > capacity){
+            parkedPosition.put(parkingTicket,car);
+            return parkingTicket;
+        }
+        return null;
     }
 
     public Car fetch(ParkingTicket parkingTicket) {

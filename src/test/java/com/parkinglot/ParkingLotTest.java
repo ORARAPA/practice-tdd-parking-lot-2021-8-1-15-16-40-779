@@ -473,5 +473,25 @@ public class ParkingLotTest {
         assertEquals("Unrecognized parking ticket.",exception.getMessage());
     }
 
+    @Test
+    public void should_return_error_no_position_available_when_fetch_given_a_smart_parking_boy_managing_two_full_parking_lots_and_a_car() {
+        //given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        ParkingLot parkingLot1 = new ParkingLot();
+        ParkingLot parkingLot2 = new ParkingLot();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        Car car = new Car();
+        SmartParkingBoy parkingBoy = new SmartParkingBoy(parkingLots);
+        for (int i = 0; i < 20; i++) {
+            parkingBoy.park(car);
+        }
+
+
+        //when & then
+        Exception exception = assertThrows(NoAvailablePositionException.class,() -> parkingBoy.park(car));
+        assertEquals("No available position.",exception.getMessage());
+    }
+
 
 }

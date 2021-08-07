@@ -515,4 +515,27 @@ public class ParkingLotTest {
 
     }
 
+    @Test
+    public void should_return_right_parking_lot_for_each_car_when_park_thrice_given_a_super_smart_parking_boy_with_two_empty_parking_lots_and_three_cars() {
+        //given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        ParkingLot parkingLot1 = new ParkingLot();
+        ParkingLot parkingLot2 = new ParkingLot();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        Car car = new Car();
+        SuperSmartParkingBoy parkingBoy = new SuperSmartParkingBoy(parkingLots);
+        String expected1 = "Car is parked in Parking Lot 1";
+        String expected2 = "Car is parked in Parking Lot 2";
+        String expected3 = "Car is parked in Parking Lot 1";
+
+        //when
+        parkingBoy.park(car);
+        parkingBoy.park(car);
+        parkingBoy.park(car);
+
+        //then
+        assertEquals(expected1+expected2+expected3,systemOut());
+
+    }
 }

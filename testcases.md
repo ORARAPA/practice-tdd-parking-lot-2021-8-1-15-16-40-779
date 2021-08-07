@@ -147,7 +147,7 @@ Given a super smart parking boy, first parking lot has 1 parked car, second park
 When park the car      
 Return car parked in first parking lot
 
-[] Case2  
+[X] Case2  
 Given a super smart parking boy with two empty parking lots, and three cars  
 When park the car (3x)     
 Return right parking lot for each car

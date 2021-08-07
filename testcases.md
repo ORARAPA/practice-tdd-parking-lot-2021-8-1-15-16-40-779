@@ -157,12 +157,12 @@ Given a super smart parking boy with parked cars in two parking lots, and two pa
 When fetch the car (2x)      
 Return right car for each ticket
 
-[] Case4  
+[X] Case4  
 Given a super smart parking boy that manages two parking lots, and unrecognized ticket  
 When fetch the car    
 Return  error message "Unrecognized parking ticket."
 
-[] Case5  
+[X] Case5  
 Given a super smart parking boy that manages two parking lots, and used parking ticket  
 When fetch the car    
 Return error message "Unrecognized parking ticket."

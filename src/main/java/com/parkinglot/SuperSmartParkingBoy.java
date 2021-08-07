@@ -25,4 +25,8 @@ public class SuperSmartParkingBoy {
                 .max(Comparator.comparingInt(currParkingLot -> ((currParkingLot.capacity - currParkingLot.parkedPosition.size())/currParkingLot.capacity)))
                 .get();
     }
+
+    public Car fetch(ParkingTicket parkingTicket) {
+        return null;
+    }
 }

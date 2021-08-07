@@ -152,7 +152,7 @@ Given a super smart parking boy with two empty parking lots, and three cars
 When park the car (3x)     
 Return right parking lot for each car
 
-[] Case3  
+[X] Case3  
 Given a super smart parking boy with parked cars in two parking lots, and two parking tickets  
 When fetch the car (2x)      
 Return right car for each ticket

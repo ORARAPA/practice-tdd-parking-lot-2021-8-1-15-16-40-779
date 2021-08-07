@@ -14,6 +14,9 @@ public class SuperSmartParkingBoy {
     }
 
     public ParkingTicket park(Car car) {
+        if(getTotalCapacity(parkingLots) <= getTotalOccupiedPositions(parkingLots)){
+            throw new NoAvailablePositionException();
+        }
         this.parkingLot = getParkingLotWithLargerAvailablePositionRate(parkingLots);
         System.out.print("Car is parked in Parking Lot " + (parkingLots.indexOf(parkingLot)+1));
         return parkingLot.park(car);
@@ -22,7 +25,7 @@ public class SuperSmartParkingBoy {
     private ParkingLot getParkingLotWithLargerAvailablePositionRate(List<ParkingLot> parkingLots){
         return parkingLots
                 .stream()
-                .max(Comparator.comparingInt(currParkingLot -> ((currParkingLot.capacity - currParkingLot.parkedPosition.size())/currParkingLot.capacity)))
+                .max(Comparator.comparingDouble(currParkingLot -> ((currParkingLot.capacity - currParkingLot.parkedPosition.size())/currParkingLot.capacity)))
                 .get();
     }
 
@@ -38,5 +41,17 @@ public class SuperSmartParkingBoy {
                 .stream()
                 .filter(currParkingLot -> currParkingLot.parkedPosition.containsKey(parkingTicket))
                 .collect(Collectors.toList());
+    }
+
+    private int getTotalCapacity(List<ParkingLot> parkingLots){
+        return parkingLots
+                .stream()
+                .reduce(0,(currParkingLot,nextParkingLot) -> currParkingLot + nextParkingLot.capacity ,Integer::sum);
+    }
+
+    private int getTotalOccupiedPositions(List<ParkingLot> parkingLots){
+        return parkingLots
+                .stream()
+                .reduce(0,(currParkingLot,nextParkingLot) -> currParkingLot + nextParkingLot.parkedPosition.size() ,Integer::sum);
     }
 }

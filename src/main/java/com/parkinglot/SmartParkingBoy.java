@@ -22,9 +22,8 @@ public class SmartParkingBoy {
     private ParkingLot getParkingLotWithMoreEmptyPositions(List<ParkingLot> parkingLots){
         return parkingLots
                 .stream()
-                .sorted(Comparator.comparingInt(parkingLot -> parkingLot.parkedPosition.size()))
-                .collect(Collectors.toList())
-                .get(0);
+                .min(Comparator.comparingInt(parkingLot -> parkingLot.parkedPosition.size()))
+                .get();
     }
 
     public Car fetch(ParkingTicket parkingTicket) {

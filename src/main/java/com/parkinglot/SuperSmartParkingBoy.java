@@ -22,15 +22,7 @@ public class SuperSmartParkingBoy {
     private ParkingLot getParkingLotWithLargerAvailablePositionRate(List<ParkingLot> parkingLots){
         return parkingLots
                 .stream()
-                .sorted(Comparator.comparingInt(this::computeAvailablePositionRate))
-                .collect(Collectors.toList()).get(parkingLots.indexOf(parkingLot)+1);
+                .max(Comparator.comparingInt(currParkingLot -> ((currParkingLot.capacity - currParkingLot.parkedPosition.size())/currParkingLot.capacity)))
+                .get();
     }
-
-    private int computeAvailablePositionRate(ParkingLot parkingLot){
-        return parkingLots
-                .stream()
-                .map(currParkingLot -> (parkingLot.capacity - parkingLot.parkedPosition.size())/currParkingLot.capacity)
-                .collect(Collectors.toList()).get(parkingLots.indexOf(parkingLot));
-    }
-
 }

@@ -142,7 +142,7 @@ Return error message "No available position."
 
 
 # Story 6
-[] Case1  
+[X] Case1  
 Given a super smart parking boy, first parking lot has 1 parked car, second parking lot has 2 parked cars, and a car  
 When park the car      
 Return car parked in first parking lot

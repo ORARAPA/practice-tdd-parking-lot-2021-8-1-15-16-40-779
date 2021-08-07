@@ -30,7 +30,7 @@ public class SuperSmartParkingBoy {
         if(!findParkingLotRelatedTo(parkingTicket).isEmpty()){
             return findParkingLotRelatedTo(parkingTicket).get(0).fetch(parkingTicket);
         }
-        return null;
+        throw new UnrecognizedParkingTicketException();
     }
 
     private List<ParkingLot> findParkingLotRelatedTo(ParkingTicket parkingTicket) {

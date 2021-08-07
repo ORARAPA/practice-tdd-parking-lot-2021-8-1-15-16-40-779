@@ -27,6 +27,16 @@ public class SuperSmartParkingBoy {
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
+        if(!findParkingLotRelatedTo(parkingTicket).isEmpty()){
+            return findParkingLotRelatedTo(parkingTicket).get(0).fetch(parkingTicket);
+        }
         return null;
+    }
+
+    private List<ParkingLot> findParkingLotRelatedTo(ParkingTicket parkingTicket) {
+        return parkingLots
+                .stream()
+                .filter(currParkingLot -> currParkingLot.parkedPosition.containsKey(parkingTicket))
+                .collect(Collectors.toList());
     }
 }

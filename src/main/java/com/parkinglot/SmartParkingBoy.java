@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class SmartParkingBoy extends ParkingBoy {
-    private List<ParkingLot> parkingLots;
+    private final List<ParkingLot> parkingLots;
     private ParkingLot parkingLot;
 
     public SmartParkingBoy(List<ParkingLot> parkingLots) {

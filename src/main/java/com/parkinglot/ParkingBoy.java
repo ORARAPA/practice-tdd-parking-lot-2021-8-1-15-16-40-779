@@ -3,7 +3,7 @@ package com.parkinglot;
 import java.util.List;
 
 public class ParkingBoy {
-    private boolean isParkingBoyManagingMoreThanOneParkingLot;
+    private final boolean isParkingBoyManagingMoreThanOneParkingLot;
     private ParkingLot parkingLot;
     private List<ParkingLot> parkingLots;
 

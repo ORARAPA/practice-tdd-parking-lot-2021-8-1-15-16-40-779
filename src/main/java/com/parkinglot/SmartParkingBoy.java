@@ -5,11 +5,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class SmartParkingBoy {
+public class SmartParkingBoy extends ParkingBoy {
     private List<ParkingLot> parkingLots;
     private ParkingLot parkingLot;
 
     public SmartParkingBoy(List<ParkingLot> parkingLots) {
+        super(parkingLots);
         this.parkingLots = parkingLots;
     }
 

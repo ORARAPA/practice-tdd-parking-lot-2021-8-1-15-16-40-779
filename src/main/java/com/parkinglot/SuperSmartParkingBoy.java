@@ -5,11 +5,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SuperSmartParkingBoy {
+public class SuperSmartParkingBoy extends ParkingBoy{
     private List<ParkingLot> parkingLots;
     private ParkingLot parkingLot;
 
     public SuperSmartParkingBoy(List<ParkingLot> parkingLots) {
+        super(parkingLots);
         this.parkingLots = parkingLots;
     }
 

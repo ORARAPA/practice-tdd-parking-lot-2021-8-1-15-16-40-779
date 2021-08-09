@@ -1,7 +1,6 @@
 package com.parkinglot;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ParkingBoy {
     private boolean isParkingBoyManagingMoreThanOneParkingLot;

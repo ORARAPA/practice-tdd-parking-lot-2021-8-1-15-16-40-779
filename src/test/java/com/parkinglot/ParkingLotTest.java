@@ -1,6 +1,5 @@
 package com.parkinglot;
 
-import net.bytebuddy.implementation.bind.annotation.Super;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -166,7 +165,7 @@ public class ParkingLotTest {
     public void should_return_parking_ticket_when_park_given_a_parking_lot_a_standard_parking_boy_and_a_car() {
         //given
         ParkingLot parkingLot = new ParkingLot();
-        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
         Car car = new Car();
 
         //when
@@ -183,7 +182,7 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot();
         Car car = new Car();
         ParkingTicket parkingTicket = parkingLot.park(car);
-        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
 
         //when
         Car actualCar = parkingBoy.fetch(parkingTicket);
@@ -200,7 +199,7 @@ public class ParkingLotTest {
         Car car2 = new Car();
         ParkingTicket parkingTicket1 = parkingLot.park(car1);
         ParkingTicket parkingTicket2 = parkingLot.park(car2);
-        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
 
         //when
         Car actualCar1 = parkingBoy.fetch(parkingTicket1);
@@ -215,7 +214,7 @@ public class ParkingLotTest {
     public void should_return_error_unrecognized_ticket_when_fetch_twice_given_a_parking_lot_a_standard_parking_boy_and_a_wrong_ticket() {
         //given
         ParkingLot parkingLot = new ParkingLot();
-        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
         ParkingTicket wrongTicket = new ParkingTicket();
 
         //when & then
@@ -227,7 +226,7 @@ public class ParkingLotTest {
     public void should_return_error_unrecognized_ticket_when_fetch_given_a_parking_lot_a_standard_parking_boy_and_a_used_ticket() {
         //given
         ParkingLot parkingLot = new ParkingLot();
-        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
         ParkingTicket parkingTicket = parkingLot.park(new Car());
         parkingLot.fetch(parkingTicket);
 
@@ -244,7 +243,7 @@ public class ParkingLotTest {
         for (int i = 0; i < 10; i++) {
             parkingLot.park(car);
         }
-        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
 
         //when & then
         Exception exception = assertThrows(NoAvailablePositionException.class,() -> parkingBoy.park(car));
@@ -257,7 +256,7 @@ public class ParkingLotTest {
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
         parkingLots.add(new ParkingLot());
-        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLots);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         Car car = new Car();
 
         //when
@@ -284,7 +283,7 @@ public class ParkingLotTest {
             parkingLot1.park(car);
         }
         parkingLots.add(parkingLot2);
-        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLots);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
 
         //when
         parkingBoy.park(car);
@@ -306,7 +305,7 @@ public class ParkingLotTest {
         Car bobCar = new Car();
         ParkingTicket aliceCarInParkingLot1 = parkingLot1.park(aliceCar);
         ParkingTicket bobCarInParkingLot2 = parkingLot2.park(bobCar);
-        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLots);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
 
         //when
         Car actualAliceCar = parkingBoy.fetch(aliceCarInParkingLot1);
@@ -326,7 +325,7 @@ public class ParkingLotTest {
         ParkingLot parkingLot2 = new ParkingLot();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLots);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         ParkingTicket unrecognizedTicket = new ParkingTicket();
 
         //when & then
@@ -342,7 +341,7 @@ public class ParkingLotTest {
         ParkingLot parkingLot2 = new ParkingLot();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLots);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         ParkingTicket parkingTicket = parkingLot2.park(new Car());
         parkingLot2.fetch(parkingTicket);
 
@@ -360,7 +359,7 @@ public class ParkingLotTest {
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
         Car car = new Car();
-        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLots);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         for (int i = 0; i < 20; i++) {
             parkingBoy.park(car);
         }

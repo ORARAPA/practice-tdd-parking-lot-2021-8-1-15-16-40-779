@@ -3,16 +3,16 @@ package com.parkinglot;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class StandardParkingBoy {
+public class ParkingBoy {
     private boolean isParkingBoyManagingMoreThanOneParkingLot;
     private ParkingLot parkingLot;
     private List<ParkingLot> parkingLots;
 
-    public StandardParkingBoy(ParkingLot parkingLot) {
+    public ParkingBoy(ParkingLot parkingLot) {
         this.isParkingBoyManagingMoreThanOneParkingLot = false;
         this.parkingLot = parkingLot;
     }
-    public StandardParkingBoy(List<ParkingLot> parkingLots) {
+    public ParkingBoy(List<ParkingLot> parkingLots) {
         this.isParkingBoyManagingMoreThanOneParkingLot = true;
         this.parkingLots = parkingLots;
     }

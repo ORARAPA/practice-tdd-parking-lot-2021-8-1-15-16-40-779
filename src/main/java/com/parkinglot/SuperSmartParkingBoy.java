@@ -5,8 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class SuperSmartParkingBoy extends ParkingBoy{
-    private List<ParkingLot> parkingLots;
-    private ParkingLot parkingLot;
+    private final List<ParkingLot> parkingLots;
 
     public SuperSmartParkingBoy(List<ParkingLot> parkingLots) {
         super(parkingLots);
@@ -17,7 +16,7 @@ public class SuperSmartParkingBoy extends ParkingBoy{
         if(getTotalCapacity(parkingLots) <= getTotalOccupiedPositions(parkingLots)){
             throw new NoAvailablePositionException();
         }
-        this.parkingLot = getParkingLotWithLargerAvailablePositionRate(parkingLots);
+        ParkingLot parkingLot = getParkingLotWithLargerAvailablePositionRate(parkingLots);
         System.out.print("Car is parked in Parking Lot " + (parkingLots.indexOf(parkingLot)+1));
         return parkingLot.park(car);
     }

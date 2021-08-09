@@ -24,7 +24,7 @@ public class SuperSmartParkingBoy extends ParkingBoy{
     private ParkingLot getParkingLotWithLargerAvailablePositionRate(List<ParkingLot> parkingLots){
         return parkingLots
                 .stream()
-                .max(Comparator.comparingDouble(currParkingLot -> ((currParkingLot.capacity - currParkingLot.parkedPosition.size())/currParkingLot.capacity)))
+                .max(Comparator.comparingDouble(currParkingLot -> (((double)currParkingLot.capacity - (double)currParkingLot.parkedPosition.size())/(double)currParkingLot.capacity)))
                 .get();
     }
 

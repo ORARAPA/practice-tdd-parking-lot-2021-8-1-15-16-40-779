@@ -2,6 +2,8 @@ package com.parkinglot;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class SmartParkingBoy extends ParkingBoy {
@@ -27,11 +29,8 @@ public class SmartParkingBoy extends ParkingBoy {
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
-        ParkingLot foundInParkingLotNo = findParkingLotRelatedTo(parkingTicket);
-        if(foundInParkingLotNo == null){
-            throw new UnrecognizedParkingTicketException();
-        }
-        return findParkingLotRelatedTo(parkingTicket).fetch(parkingTicket);
+        Optional.ofNullable(findParkingLotRelatedTo(parkingTicket)).orElseThrow(UnrecognizedParkingTicketException::new);
+        return Objects.requireNonNull(findParkingLotRelatedTo(parkingTicket)).fetch(parkingTicket);
     }
 
     private ParkingLot findParkingLotRelatedTo(ParkingTicket parkingTicket) {
